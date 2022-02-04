@@ -7,11 +7,15 @@ function Bank(){
 }
 
 //Method For Assigning Id
-
+Bank.prototype.assignId = function(){
+    this.id += 1;
+    return this.id;
+};
 //Method For Adding Account
 Bank.prototype.addAccount = function(account){
-
-}
+    account.id = this.assignId();
+    this.accounts[account.id] = account;
+};
 
 //Constructor For Creating Account
 function Account(firstName , lastName , initialDeposit){
