@@ -25,8 +25,14 @@ function Account(firstName , lastName , initialDeposit){
     this.date = new Date().toLocaleDateString();
     this.Transactions = {
         withdrawalAmount : 0,
-        deposit : initialDeposit,
-        balance : 0
+        lastdeposit : initialDeposit,
+        balance : initialDeposit
     }
+}
+
+//Method For Depositing Money
+Account.prototype.deposit = function(amount){
+    this.Transactions.deposit = amount;
+    this.Transactions.balance += amount;
 }
 
