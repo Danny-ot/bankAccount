@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,11 +9,56 @@
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/jquery.js"></script>
     <script src="js/scripts.js"></script>
-    <title>Document</title>
+    <title>Bank</title>
 </head>
+
 <body>
     <div class="container">
-        <h1 class="text-center text-primary">Danny First Bank</h1>
+
+        <!-- Welcome Intro -->
+        <div class="intro">
+            <h1 class="text-center fs-50" style="font-size: 50px;">Danny Union Bank</h1>
+            <h4 class="mt-3">Welcome To Danny Union</h4>
+        </div>
+
+        <!-- Add and Account Details Buttons -->
+        <div class="row ">
+            <div class="col-md-5">
+                <button class="btn btn-info btn-block mt-2" id="add-account">Add Account</button>
+            </div>
+            <div class="col-md-5">
+                <button class="btn btn-dark btn-block mt-2" id="check-account">Accounts</button>
+            </div>
+        </div>
+
+        <!-- Add Account Form -->
+        <div class="register-account-form mt-4 ">
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="firstname" class="text-lg">FirstName: </label>
+                    <input type="text" class="form-control col-md-5 " id="firstname-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="lastname">LastName: </label>
+                    <input type="text" class="form-control col-md-5 " id="lastname-input">
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-sm-2">
+                        <label for="dob">Date Of Birth: </label>
+                        <input type="date" class="form-control  " id="dob-input">
+                    </div>
+
+                    <div class="form-group col-md-3 ml-3">
+                        <label for="init-deposit">Initial-Deposit: </label>
+                        <input type="number" class="form-control" id="initdepo-input">
+                    </div>
+                </div>
+
+            </form>
+        </div>
     </div>
 </body>
+
 </html>
