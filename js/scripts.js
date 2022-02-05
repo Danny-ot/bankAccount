@@ -18,21 +18,33 @@ Bank.prototype.addAccount = function(account){
 };
 
 //Constructor For Creating Account
-function Account(firstName , lastName , initialDeposit){
+function Account(firstName , lastName , age ,  initialDeposit){
     this.firstName = firstName;
     this.lastName = lastName;
+    this.age = age;
     this.initialDeposit = initialDeposit;
     this.date = new Date().toLocaleDateString();
-    this.Transactions = {
-        withdrawalAmount : 0,
-        lastdeposit : initialDeposit,
+    this.transactions = {
+        lastWithdrawal : 0,
+        lastDeposit : initialDeposit,
         balance : initialDeposit
     }
 }
 
 //Method For Depositing Money
 Account.prototype.deposit = function(amount){
-    this.Transactions.deposit = amount;
-    this.Transactions.balance += amount;
+    this.transactions.lastDeposit = amount;
+    this.transactions.balance += amount;
+};
+
+//Method For Withdrawing Money
+Account.prototype.withDraw = function(amount){
+    if(this.transactions.balance < amount){
+        return false;
+    }else{
+        this.transactions.balance -= amount;
+        this.transactions.lastWithdrawal = amount;
+        return true;
+    }
 }
 
