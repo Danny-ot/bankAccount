@@ -16,7 +16,7 @@ function displayContent(account){
 // Function For attaching the accountlistener
 function attachListener(){
     // Listener For The Li Click
-    $("#accounts-info").on("click" , "li" , function(){
+    $("ul#accounts-info").on("click" , "li" , function(){
         $(".details-transaction").show();
         displayDetails(this.id);
     });
@@ -25,6 +25,18 @@ function attachListener(){
     $(".details-transaction").on("click" , ".details" , function(){
         $("#details-display").toggle();
     })
+}
+
+// function for account details display
+function displayDetails(id){
+    let account = bank.findAccount(id);
+    $("#firstname-display").html(account.firstName);
+    $("#lastname-display").html(account.lastName);
+    $("#dob-display").html(account.dob);
+    $("#init-depo-display").html(account.initialDeposit);
+    let button = $(".buttons");
+    button.empty();
+    button.html("<button class = 'btn btn-light deleteButton' id = " +  account.id + ">Delete </button>")
 }
 
 $(document).ready(function(){
