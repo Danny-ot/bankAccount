@@ -6,7 +6,7 @@ function displayContent(account){
     let keys = Object.keys(account.accounts);
     keys.forEach(function(key){
         let account = bank.findAccount(key);
-       htmlString += "<li class = 'data' id = " + account.id + ">" + account.fullName(); + "</li>"
+       htmlString += "<li class = 'data mt-3' id = " + account.id + ">" + account.fullName(); + "</li>"
     })
     domElement.html(htmlString);
 }
@@ -15,6 +15,7 @@ $(document).ready(function(){
 
     //Click method for adding account
     $("#add-account").click(function(){
+        $(".accounts").hide();
         $(".register-account-form").toggle();
     });
 
@@ -35,5 +36,11 @@ $(document).ready(function(){
         $(".register-account-form").hide();
         displayContent(bank);
         
+    });
+
+    // Click Method For Displaying Lists
+    $("#check-account").click(function(){
+        $(".register-account-form").hide();
+        $(".accounts").toggle();
     })
 })
