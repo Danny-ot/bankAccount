@@ -1,5 +1,6 @@
 let bank = new Bank();
 
+// Function For Displaying Contents
 function displayContent(account){
     let domElement = $("#accounts-info");
     let htmlString = "";
@@ -11,8 +12,18 @@ function displayContent(account){
     domElement.html(htmlString);
 }
 
-$(document).ready(function(){
 
+// Function For attaching the accountlistener
+function attachListener(){
+    $("#accounts-info").on("click" , "li" , function(){
+        $(".details-transaction").toggle();
+    });
+
+    $("#")
+}
+
+$(document).ready(function(){
+    attachListener();
     //Click method for adding account
     $("#add-account").click(function(){
         $(".accounts").hide();
