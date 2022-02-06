@@ -22,3 +22,16 @@ label{
 #details-display{
     display: none;
 }
+
+ul #accounts-info{
+    cursor: pointer;
+}
+.transaction p {
+    color: red;
+}
+
+#balance-div{
+    width: 120px;
+    border: 2px solid black;
+    padding: 8px 12px;
+}

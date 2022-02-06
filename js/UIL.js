@@ -26,7 +26,13 @@ function attachListener(){
         $("#details-display").toggle();
     });
 
-    // 
+    // Listener For The delete button click
+    $(".buttons").on("click" , ".deleteButton" , function(){
+        bank.deleteAccount(this.id);
+        $("#details-display").hide();
+        $(".details-transaction").hide();
+        displayContent(bank)
+    }) 
 }
 
 // function for account details display

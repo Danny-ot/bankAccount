@@ -52,7 +52,7 @@
                     </div>
 
                     <div class="form-group col-md-3 ml-3">
-                        <label for="init-deposit">Initial-Deposit: </label>
+                        <label for="init-deposit">Initial-Deposit($): </label>
                         <input type="number" class="form-control" id="initdepo-input">
                     </div>
                 </div>
@@ -68,8 +68,8 @@
             <!-- Details For The Accounts -->
             <div class="details-transaction">
                 <div class="row ml-5">
-                    <button class="btn btn-outline-info col-xsm-1 details">Details</button>
-                    <button class="btn btn-outline-dark col-xsm-2 ml-3 transaction">Make Transaction</button>
+                    <button class="btn btn-outline-info col-xsm-1 details" type="button">Details</button>
+                    <button class="btn btn-outline-dark col-xsm-2 ml-3 transaction" type="button">Make Transaction</button>
                 </div>
 
                 <div id="details-display" class="ml-5 mt-2 bg-dark p-3 text-light">
@@ -83,6 +83,28 @@
                 </div>
             </div>
 
+            <div class="transaction col-md-5">
+                <h4>WithDraw And Deposit</h4>
+                <p>Only One Transaction Can Be Made</p>
+                <form id="transaction-form">
+                    <div class="form-group">
+                        <label for="deposit">Deposit:</label>
+                        <input type="number" class="form-control" id="depsit-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="withdraw">Withdraw</label>
+                        <input type="number" name="" id="withdrawal-input" class="form-control">
+                    </div>
+                    <button class="btn-outline-info btn">Transact</button>
+                </form>
+
+                <div class="balance mt-4">
+                    <div class="form-group">
+                        <span>Current Balance:</span>
+                        <div id="balance-div">$<span id ="balance-output"></span></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
