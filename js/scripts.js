@@ -24,6 +24,15 @@ Bank.prototype.findAccount = function(id){
     }
     return false
 };
+
+// Method For Deleting Account
+Bank.prototype.deleteAccount = function(id){
+    if(this.accounts[id] === undefined){
+        return false
+    }
+    delete this.accounts[id];
+    return true
+}
 //Constructor For Creating Account
 function Account(firstName , lastName , dob ,  initialDeposit){
     this.firstName = firstName;
@@ -41,8 +50,7 @@ function Account(firstName , lastName , dob ,  initialDeposit){
 //Method For The account fullname
 Account.prototype.fullName = function(){
     return this.lastName + " " + this.firstName
-}
-
+};
 //Method For Depositing Money
 Account.prototype.deposit = function(amount){
     this.transactions.lastDeposit = amount;

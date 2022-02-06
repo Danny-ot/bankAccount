@@ -24,7 +24,9 @@ function attachListener(){
     // Listener For The details Button Click
     $(".details-transaction").on("click" , ".details" , function(){
         $("#details-display").toggle();
-    })
+    });
+
+    // 
 }
 
 // function for account details display
