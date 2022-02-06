@@ -23,11 +23,12 @@ label{
     display: none;
 }
 
-ul #accounts-info{
+#accounts-info li{
     cursor: pointer;
 }
-.transaction p {
+#transaction-warning {
     color: red;
+    display: none;
 }
 
 #balance-div{
@@ -35,3 +36,9 @@ ul #accounts-info{
     border: 2px solid black;
     padding: 8px 12px;
 }
+
+.transaction{
+    display: none;
+    margin: 30px 0px 0px 30px;
+}
+

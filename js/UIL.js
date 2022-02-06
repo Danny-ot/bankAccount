@@ -23,8 +23,16 @@ function attachListener(){
 
     // Listener For The details Button Click
     $(".details-transaction").on("click" , ".details" , function(){
+        $(".transaction").hide();
         $("#details-display").toggle();
     });
+
+    // Listener For The transactions button click
+    $(".details-transaction").on("click" , ".transaction-btn" , function(){
+        $("#details-display").hide();
+        $(".transaction").toggle();
+    });
+
 
     // Listener For The delete button click
     $(".buttons").on("click" , ".deleteButton" , function(){
@@ -79,4 +87,6 @@ $(document).ready(function(){
         $(".register-account-form").hide();
         $(".accounts").toggle();
     })
+
+    
 })
