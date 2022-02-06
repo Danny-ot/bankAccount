@@ -18,3 +18,7 @@ label{
 .details-transaction{
     display: none;
 }
+
+#details-display{
+    display: none;
+}

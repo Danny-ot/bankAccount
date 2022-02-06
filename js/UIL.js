@@ -15,11 +15,16 @@ function displayContent(account){
 
 // Function For attaching the accountlistener
 function attachListener(){
+    // Listener For The Li Click
     $("#accounts-info").on("click" , "li" , function(){
-        $(".details-transaction").toggle();
+        $(".details-transaction").show();
+        displayDetails(this.id);
     });
 
-    
+    // Listener For The details Button Click
+    $(".details-transaction").on("click" , ".details" , function(){
+        $("#details-display").toggle();
+    })
 }
 
 $(document).ready(function(){
