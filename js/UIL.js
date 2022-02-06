@@ -19,7 +19,7 @@ function attachListener(){
         $(".details-transaction").toggle();
     });
 
-    $("#")
+    
 }
 
 $(document).ready(function(){
