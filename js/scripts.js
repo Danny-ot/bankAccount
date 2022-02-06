@@ -17,11 +17,18 @@ Bank.prototype.addAccount = function(account){
     this.accounts[account.id] = account;
 };
 
+//Method For Finding Account
+Bank.prototype.findAccount = function(id){
+    if(this.accounts[id] !== undefined){
+        return this.accounts[id];
+    }
+    return false
+};
 //Constructor For Creating Account
-function Account(firstName , lastName , age ,  initialDeposit){
+function Account(firstName , lastName , dob ,  initialDeposit){
     this.firstName = firstName;
     this.lastName = lastName;
-    this.age = age;
+    this.dob = dob;
     this.initialDeposit = initialDeposit;
     this.date = new Date().toLocaleDateString();
     this.transactions = {
@@ -29,6 +36,11 @@ function Account(firstName , lastName , age ,  initialDeposit){
         lastDeposit : initialDeposit,
         balance : initialDeposit
     }
+}
+
+//Method For The account fullname
+Account.prototype.fullName = function(){
+    return this.lastName + " " + this.firstName
 }
 
 //Method For Depositing Money
