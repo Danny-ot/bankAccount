@@ -6,7 +6,7 @@ function displayContent(account){
     let keys = Object.keys(account.accounts);
     keys.forEach(function(key){
         let account = bank.findAccount(key);
-       htmlString += "<li id = " + account.id + ">" + account.fullName + "</li>"
+       htmlString += "<li class = 'data' id = " + account.id + ">" + account.fullName(); + "</li>"
     })
     domElement.html(htmlString);
 }
@@ -33,6 +33,7 @@ $(document).ready(function(){
         $("#dob-input").val("");
         $("#initdepo-input").val("");
         $(".register-account-form").hide();
+        displayContent(bank);
         
     })
 })
