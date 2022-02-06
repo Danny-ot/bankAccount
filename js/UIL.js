@@ -1,6 +1,15 @@
 let bank = new Bank();
 
-
+function displayContent(account){
+    let domElement = $("#accounts-info");
+    let htmlString = "";
+    let keys = Object.keys(account.accounts);
+    keys.forEach(function(key){
+        let account = bank.findAccount(key);
+       htmlString += "<li id = " + account.id + ">" + account.fullName + "</li>"
+    })
+    domElement.html(htmlString);
+}
 
 $(document).ready(function(){
 
