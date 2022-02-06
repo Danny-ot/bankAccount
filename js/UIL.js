@@ -88,5 +88,13 @@ $(document).ready(function(){
         $(".accounts").toggle();
     })
 
-    
+
+    // Form Submission for withdrawal and deposit
+    $("#transaction-form").submit(function(){
+        const withdraw = $("#withdrawal-input").val();
+        const deposit = $("#depsit-input").val();
+        if(withdraw !== "" && deposit !== ""){
+            
+        }
+    })
 })
