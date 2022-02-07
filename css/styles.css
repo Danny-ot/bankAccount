@@ -1,3 +1,6 @@
+body{
+    background: linear-gradient(to left , rgb(93, 95, 88) , rgb(219, 232, 243));
+}
 label{
     font-size: large;
 }
@@ -27,6 +30,11 @@ label{
     cursor: pointer;
 }
 #transaction-warning {
+    color: red;
+    display: none;
+}
+
+#withdraw-warning{
     color: red;
     display: none;
 }

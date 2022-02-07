@@ -19,6 +19,7 @@ function attachListener() {
     $("ul#accounts-info").on("click", "li", function () {
         $(".details-transaction").html("<button class='btn btn-outline-info col-xsm-1 details' type='button'>Details</button>" + "<button class='btn btn-outline-dark col-xsm-2 ml-3 transaction-btn' id =" + this.id + " type='button'>Make Transaction</button>")
         $(".details-transaction").show();
+        $(".transaction").hide();
         displayDetails(this.id);
     });
 
@@ -30,9 +31,12 @@ function attachListener() {
 
     // Listener For The transactions button click
     $(".details-transaction").on("click", ".transaction-btn", function () {
+        
         $("#details-display").hide();
         $("#transact").empty();
-        $("#transact").html(" <button class='btn-outline-info btn transa' id =" + this.id + " type = 'button'>Transact</button>")
+        $(".transact-btn").attr("id" , this.id);
+        let account = bank.findAccount(this.id);
+        $("#balance-output").html(account.transactions.balance);
         $(".transaction").toggle();
     });
 
@@ -72,8 +76,10 @@ $(document).ready(function () {
         const firstName = $("#firstname-input").val();
         const lastName = $("#lastname-input").val();
         const dob = $("#dob-input").val();
-        const initDeposit = parseInt($("#initdepo-input").val());
-
+        let initDeposit = parseInt($("#initdepo-input").val());
+        if(isNaN(initDeposit) === true){
+            initDeposit = 0;
+        }
         let account = new Account(firstName, lastName, dob, initDeposit);
         bank.addAccount(account);
         $("#firstname-input").val("");
@@ -91,27 +97,37 @@ $(document).ready(function () {
     $("#check-account").click(function () {
         $(".register-account-form").hide();
         $(".accounts").toggle();
-    })
+    });
 
+
+   
     // Form Submission for withdrawal and deposit
-    $("transaction-form").click(function () {
+    $(".transact-btn").click(function () {
         const withdraw = $("#withdrawal-input").val();
         const deposit = $("#depsit-input").val();
-        
+        let key = $(this).attr("id");
         let account = bank.findAccount(key);
         $("#balance-output").html(account.transactions.balance);
         if (withdraw !== "" && deposit !== "") {
             $("#transaction-warning").show();
+            $("#withdraw-warning").hide();
         }
         else if (withdraw !== "" && deposit === "") {
             $("#transaction-warning").hide();
-            account.withDraw(parseInt(withdraw));
+            if(account.withDraw(parseInt(withdraw)) === false){
+                $("#withdraw-warning").show();
+            }else{
+                $("#withdraw-warning").hide();
+                
+            }
+            
             $("#balance-output").html(account.transactions.balance);
             $("#withdrawal-input").val("");
             $("#depsit-input").val("");
         }
         else if (withdraw === "" && deposit !== "") {
             $("#transaction-warning").hide();
+            $("#withdraw-warning").hide();
             account.deposit(parseInt(deposit));
             $("#balance-output").html(account.transactions.balance);
             $("#withdrawal-input").val("");
