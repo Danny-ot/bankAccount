@@ -40,6 +40,7 @@ function Account(firstName , lastName , dob ,  initialDeposit){
     this.dob = dob;
     this.initialDeposit = initialDeposit;
     this.date = new Date().toLocaleDateString();
+    this.time = new Date().toLocaleTimeString();
     this.transactions = {
         lastWithdrawal : 0,
         lastDeposit : initialDeposit,

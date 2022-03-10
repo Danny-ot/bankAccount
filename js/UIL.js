@@ -57,6 +57,8 @@ function displayDetails(id) {
     $("#lastname-display").html(account.lastName);
     $("#dob-display").html(account.dob);
     $("#init-depo-display").html(account.initialDeposit);
+    $("#account-date").html(account.date);
+    $("#account-time").html(account.time);
     let button = $(".buttons");
     button.empty();
     button.html("<button class = 'btn btn-light deleteButton' id = " + account.id + ">Delete </button>")
